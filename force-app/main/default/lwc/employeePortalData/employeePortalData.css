@@ -1,0 +1,28 @@
+/* .sectionHeading{
+    display:flex;
+    margin-left:4%;
+    font-weight: bold;
+     font-size:17px;
+     margin-top:0%;
+} */
+.errorMessage{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:4%;
+    align-items:center;
+    justify-content:center;
+     
+}
+
+.displayFormat  
+{
+	display: grid;
+    grid-template-columns: auto auto  ;
+    /* list-style: none; */
+}
+/* .com{
+   display: grid;
+   grid-template-columns: auto auto  auto auto ;
+
+} */

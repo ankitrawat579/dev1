@@ -1,0 +1,56 @@
+<template>
+	<template if:true={isSingle}>
+		<lightning-card title={sectionheading}>
+			<!-- <div class="sectionHeading">{sectionheading}</div> -->
+			<div class="slds-m-left_x-large">
+				<lightning-record-view-form object-api-name="Employee__c" record-id={recordId}>
+					<div class="displayFormat">
+						<template for:each={columns} for:item="col">
+							<h1 key={col}>
+								<lightning-output-field field-name={col}></lightning-output-field>
+							</h1>
+						</template>
+					</div>
+				</lightning-record-view-form>
+			</div>
+		</lightning-card>
+	</template>
+
+	<template if:false={isHoliday}>
+	<template if:false={isSingle}>
+		<lightning-card title={sectionheading} >
+			<!-- <div class="sectionHeading">{sectionheading}</div> -->
+			<lightning-datatable
+			hide-checkbox-column="true"
+            key-field="Id"
+            data={records}
+            columns={selectedColumns}
+			sorted-by={orderBy}>
+		</lightning-datatable>
+		</lightning-card>
+	</template>
+</template>
+
+<template if:true={isHoliday}>
+	<template if:false={isSingle} >
+		<lightning-card title={sectionheading} >
+			<!-- <div class="sectionHeading">{sectionheading}</div> -->
+			<lightning-datatable
+			hide-checkbox-column="true"
+            key-field="Id"
+            data={records}
+            columns={holidayColumns}>
+		</lightning-datatable>
+		</lightning-card>
+	</template>
+</template>
+
+	<template if:true={isError}>
+		<lightning-card>
+			<div class="slds-grid errorMessage" >
+				<p><b>{errorMessage}</b></p>
+			</div>
+		</lightning-card>
+	</template>
+	
+</template>

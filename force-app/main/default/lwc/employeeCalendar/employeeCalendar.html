@@ -1,0 +1,77 @@
+<template>
+    <div class="calendar-layout">
+
+
+        <!-- Calendar (Right Section) -->
+        <div class="calendar">
+            <div class="calendar-header">
+                <button onclick={handlePrevMonth}>&#8249;</button>
+                <h2>{monthYear}</h2>
+                <button onclick={handleNextMonth}>&#8250;</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={calendarRows} for:item="row">
+                        <tr key={row.id}>
+                            <template for:each={row.cells} for:item="cell">
+                                <td key={cell.dateKey} data-date={cell.dateKey} data-day={cell.day}
+                                    class={cell.cssClass} onclick={handleDateClick}>
+                                    <template if:true={cell.day}>
+                                        {cell.day}
+                                        <template if:true={cell.event}>
+                                            <div class="event">{cell.event}</div>
+                                        </template>
+                                    </template>
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="legend-container">
+            <div class="Legend-seperator">
+                <div class="seperator">
+                    <div class="legend-item"><span class="legend-box present-day"></span> Present </div>
+                    <div class="legend-item"><span class="legend-box Half-day"></span> Half Day </div>
+                </div>
+                <div class="seperator">
+                    <div class="legend-item"><span class="legend-box holiday-day"></span> Holidays</div>
+                    <div class="legend-item"><span class="legend-box Absent"></span> Absent</div>
+                </div>
+                <div class="seperator">
+                    <div class="legend-item"><span class="legend-box leave-day"></span> Leave</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for Adding Event -->
+    <template if:true={isModalOpen}>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close" onclick={closeModal}>&times;</span>
+                <h3>Add Event</h3>
+                <input
+                    type="text"
+                    value={eventInput}
+                    oninput={handleInputChange}
+                    placeholder="Event Name"
+                />
+                <button onclick={saveEvent}>Save</button>
+            </div>
+        </div>
+    </template>
+</template>

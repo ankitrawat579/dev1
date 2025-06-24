@@ -1,0 +1,14 @@
+.background {
+    padding: 3%;
+    background-image:url(https://img.freepik.com/premium-vector/mountain-forest-background_43605-1874.jpg?w=826);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.font {
+    color:#000;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+.displayFormat  
+{
+	display: grid;
+    grid-template-columns: auto auto ;
+    /* list-style: none; */
+}
+.com{
+   display: grid;
+   grid-template-columns: auto auto  auto auto ;
+
+}
