@@ -1,0 +1,29 @@
+name: Deploy to BM_SB
+
+on:
+  push:
+    branches:
+      - development-changes
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout repository
+      uses: actions/checkout@v3
+
+    - name: 🛠️ Install Salesforce CLI
+      run: |
+        npm install sfdx-cli --global
+        sfdx --version
+
+    - name: 🔐 Authenticate to BM_SB using auth URL
+      run: |
+        echo "${{ secrets.BM_SB_AUTH_URL }}" > auth.txt
+        sfdx auth:sfdxurl:store -f auth.txt -a BM_SB
+        sfdx force:org:list
+
+    - name: 🚀 Deploy to BM_SB
+      run: |
+        sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal

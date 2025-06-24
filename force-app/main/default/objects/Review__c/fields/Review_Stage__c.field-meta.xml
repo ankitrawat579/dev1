@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Review_Stage__c</fullName>
+    <externalId>false</externalId>
+    <label>Review Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Interview Stage</fullName>
+                <default>false</default>
+                <label>Interview Stage</label>
+            </value>
+            <value>
+                <fullName>Shortlisted</fullName>
+                <default>false</default>
+                <label>Shortlisted</label>
+            </value>
+            <value>
+                <fullName>Documentation Pending</fullName>
+                <default>false</default>
+                <label>Documentation Pending</label>
+            </value>
+            <value>
+                <fullName>Offered</fullName>
+                <default>false</default>
+                <label>Offered</label>
+            </value>
+            <value>
+                <fullName>Backout</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Backout</label>
+            </value>
+            <value>
+                <fullName>Joined</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Joined</label>
+            </value>
+            <value>
+                <fullName>Withdraw</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Withdraw</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

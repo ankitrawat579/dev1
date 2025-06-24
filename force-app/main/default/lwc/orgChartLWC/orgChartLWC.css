@@ -1,0 +1,43 @@
+/*CSS*/
+.body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin:0;
+  border: 10px solid blue;
+  overflow: hidden;
+  font-family: Helvetica;
+}
+.tree{
+  width:100%;
+  height:100%;
+}
+.boc-button {
+    /* Your existing button styles */
+    background-color: #039be5;
+    /* Other styles */
+    position: relative; /* Ensure relative positioning for absolute child */
+}
+
+.boc-button:hover::before {
+    display: block;
+    position: absolute;
+    top: -100%; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust background overlay as needed */
+    z-index: 1; /* Ensure the hover image is above other content */
+    pointer-events: none; /* Allow button clicks through the overlay */
+    transition: opacity 0.3s ease; /* Optional: Add transition for smooth effect */
+    opacity: 0; /* Start hidden */
+}
+
+.boc-button:hover {
+    /* Your existing hover styles */
+    background-color: #35afea;
+}
+
+.boc-button:hover::before {
+    opacity: 1; /* Show the hover image on hover */
+}

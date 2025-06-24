@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Qualification_When_Education_Oth</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  ISPICKVAL(Education__c, &quot;Other&quot;),
+  ISBLANK(Your_Qualification_if_not_listed__c)  
+)</errorConditionFormula>
+    <errorMessage>please fill your qualification</errorMessage>
+</ValidationRule>

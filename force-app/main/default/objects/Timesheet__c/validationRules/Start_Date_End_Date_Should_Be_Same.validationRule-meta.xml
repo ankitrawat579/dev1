@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Date_End_Date_Should_Be_Same</fullName>
+    <active>true</active>
+    <description>Time sheet start date and end date should be same day</description>
+    <errorConditionFormula>DATEVALUE( Start_Time__c )  &lt;&gt; DATEVALUE( End_Time__c )</errorConditionFormula>
+    <errorMessage>Timesheet Start Date /End Date Should Be From Same Day.</errorMessage>
+</ValidationRule>

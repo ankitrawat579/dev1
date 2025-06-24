@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work_Location__c</fullName>
+    <description>Employee Work Location</description>
+    <externalId>false</externalId>
+    <label>Work Location</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Faridabad</fullName>
+                <default>false</default>
+                <label>Faridabad</label>
+            </value>
+            <value>
+                <fullName>Delhi</fullName>
+                <default>false</default>
+                <label>Delhi</label>
+            </value>
+            <value>
+                <fullName>Noida</fullName>
+                <default>false</default>
+                <label>Noida</label>
+            </value>
+            <value>
+                <fullName>Gurgaon</fullName>
+                <default>false</default>
+                <label>Gurgaon</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

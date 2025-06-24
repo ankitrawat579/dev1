@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>List_of_Offered_Candidates</fullName>
+    <columns>NAME</columns>
+    <columns>Candidate_Name__c</columns>
+    <columns>Review_Stage__c</columns>
+    <columns>Candidate_Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Review_Stage__c</field>
+        <operation>equals</operation>
+        <value>Offered</value>
+    </filters>
+    <label>Offered Candidates</label>
+</ListView>

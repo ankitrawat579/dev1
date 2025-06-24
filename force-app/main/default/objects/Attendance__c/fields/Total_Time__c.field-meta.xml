@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Time__c</fullName>
+    <description>Employee Working Hours.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  Out_Time__c - In_Time__c &gt; 0 ,
+   TEXT( FLOOR( MOD( (Out_Time__c - In_Time__c ) * 24, 24 ) ) ) &amp; &quot; hours &quot;
+  &amp; TEXT( ROUND( MOD( (Out_Time__c - In_Time__c ) * 24 * 60, 60 ), 0 ) ) &amp; &quot; minutes&quot;,
+  &quot;Absent&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

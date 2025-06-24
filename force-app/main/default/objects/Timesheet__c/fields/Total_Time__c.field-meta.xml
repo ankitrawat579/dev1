@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Time__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ End_Time__c  -  Start_Time__c  &gt; 0 ,
+TEXT( FLOOR( MOD( ( End_Time__c -  Start_Time__c  ) * 24, 24 ) ) ) &amp; &quot; Hours &quot;
+&amp; TEXT( ROUND( MOD( ( End_Time__c  -  Start_Time__c  ) * 24 * 60, 60 ), 0 ) ) &amp; &quot; Minutes&quot;,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Time</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

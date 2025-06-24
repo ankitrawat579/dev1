@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Candidate_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Candidate Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Review_Stage__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Joined</fullName>
+                <default>false</default>
+                <label>Joined</label>
+            </value>
+            <value>
+                <fullName>Backout</fullName>
+                <default>false</default>
+                <label>Backout</label>
+            </value>
+            <value>
+                <fullName>Withdraw</fullName>
+                <default>false</default>
+                <label>Withdraw</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Offered</controllingFieldValue>
+            <valueName>Joined</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offered</controllingFieldValue>
+            <valueName>Backout</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Offered</controllingFieldValue>
+            <valueName>Withdraw</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

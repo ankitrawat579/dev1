@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_Employees</fullName>
+    <columns>Employee_Code__c</columns>
+    <columns>NAME</columns>
+    <columns>Reporting_Manager__c</columns>
+    <columns>Joining_Date__c</columns>
+    <columns>Mid_Review_Date__c</columns>
+    <columns>Annual_Review_Date__c</columns>
+    <columns>Performance_Flag__c</columns>
+    <columns>orgChartId__c</columns>
+    <columns>orgChartParentId__c</columns>
+    <columns>Leave_Balance__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Employees</label>
+</ListView>

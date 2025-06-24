@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Start_Time</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+DATEVALUE( Start_Time__c ) &lt;&gt; TODAY(),
+DATEVALUE(Start_Time__c ) &lt;&gt; TODAY()-1,
+DATEVALUE(Start_Time__c ) &lt;&gt; TODAY()-2, 
+DATEVALUE(Start_Time__c ) &lt;&gt; TODAY()-3)</errorConditionFormula>
+    <errorMessage>We can fill only Today and last 3 days time sheet.</errorMessage>
+</ValidationRule>
