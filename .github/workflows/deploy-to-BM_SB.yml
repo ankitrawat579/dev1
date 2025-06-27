@@ -1,9 +1,9 @@
-name: Validate and Deploy to BM_SB
+name: Deploy to BM_SB After Merge
 
 on:
-  pull_request:
+  push:
     branches:
-      - development-changes
+      - development-changes-next-step
 
 jobs:
   validate-and-deploy:
@@ -25,7 +25,11 @@ jobs:
         sfdx force:org:list
       shell: bash
 
+    # - name: ✅ Validate Metadata (CheckOnly + Apex Tests)
+    #   run: |
+    #     sfdx force:source:deploy -u BM_SB -p force-app --checkonly --testlevel RunLocalTests --json --loglevel fatal
+
     - name: 🚀 Deploy Metadata to BM_SB (if validation passed)
-      if: success() 
+      if: success()
       run: |
         sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal
