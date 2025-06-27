@@ -1,4 +1,4 @@
-name: Deploy to BM_SB
+name: Validate and Deploy to BM_SB
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - development-changes
 
 jobs:
-  deploy:
+  validate-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,12 +20,16 @@ jobs:
 
     - name: 🔐 Authenticate to BM_SB using Auth URL
       run: |
-          echo "${{ secrets.BM_SB_AUTH_URL }}" > auth.txt
-          sfdx force:auth:sfdxurl:store -f auth.txt -a BM_SB
-          sfdx force:org:list
+        echo "${{ secrets.BM_SB_AUTH_URL }}" > auth.txt
+        sfdx force:auth:sfdxurl:store -f auth.txt -a BM_SB
+        sfdx force:org:list
       shell: bash
 
+    - name: ✅ Validate Metadata (Run Apex Tests)
+      run: |
+        sfdx force:source:deploy -u BM_SB -p force-app --checkonly --testlevel RunLocalTests --json --loglevel fatal
 
-    - name: 🚀 Deploy metadata to BM_SB
+    - name: 🚀 Deploy Metadata to BM_SB (if validation passed)
+      if: success() 
       run: |
         sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal
