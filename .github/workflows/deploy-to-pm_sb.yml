@@ -7,9 +7,7 @@ on:
 
 jobs:
   deploy-to-pm_sb:
-    if: github.event.head_commit.message contains 'Merge branch' && github.event.head_commit.message contains 'dev1Branch'
     runs-on: ubuntu-latest
-
     steps:
     - name: 📦 Checkout repository
       uses: actions/checkout@v3
@@ -27,6 +25,7 @@ jobs:
       shell: bash
 
     - name: ✅ Validate Metadata (Run Apex Tests)
+      if: contains(github.event.head_commit.message, 'development-changes') && contains(github.event.head_commit.message, 'development-changes-next-step')
       run: |
         sfdx force:source:deploy -u PM_SB -p force-app --checkonly --testlevel RunLocalTests --json --loglevel fatal
 
