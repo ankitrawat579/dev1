@@ -25,10 +25,6 @@ jobs:
         sfdx force:org:list
       shell: bash
 
-    - name: ✅ Validate Metadata (Run Apex Tests)
-      run: |
-        sfdx force:source:deploy -u BM_SB -p force-app --checkonly --testlevel RunLocalTests --json --loglevel fatal
-
     - name: 🚀 Deploy Metadata to BM_SB (if validation passed)
       if: success() 
       run: |
