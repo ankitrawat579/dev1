@@ -1,0 +1,24 @@
+name: Deploy to BM_SB on Merge
+
+on:
+  push:
+    branches:
+      - deployment-changes-second-step
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Salesforce CLI
+        run: npm install -g sfdx-cli
+
+      - name: Authenticate to BM_SB Sandbox
+        run: echo "${{ secrets.BM_SB_AUTH_URL }}" > auth_url.txt
+      - run: sfdx auth:sfdxurl:store -f auth_url.txt -a BM_SB
+
+      - name: Deploy to BM_SB
+        run: sfdx force:source:deploy -u BM_SB -p force-app -l RunLocalTests -w 30
