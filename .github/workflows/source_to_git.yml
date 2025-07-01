@@ -23,4 +23,4 @@ jobs:
         run: sfdx auth:sfdxurl:store -f auth_url.txt -a BM_SB
 
       - name: 🚀 Deploy to BM_SB Sandbox
-        run: sfdx force:source:deploy -u BM_SB -p force-app -l RunLocalTests -w 30
+        run: sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal
