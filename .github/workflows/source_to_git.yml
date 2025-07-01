@@ -26,6 +26,6 @@ jobs:
       shell: bash
 
 
-    - name: 🚀 Deploy metadata to BhavSB
+    - name: 🚀 Deploy metadata to Bhav
       run: |
         sfdx force:source:deploy -u BhavSB -p force-app --json --loglevel fatal
