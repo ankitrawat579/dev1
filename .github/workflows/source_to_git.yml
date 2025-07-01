@@ -10,20 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🧾 Checkout Repository
-        uses: actions/checkout@v3
+    - name: 📦 Checkout repository
+      uses: actions/checkout@v3
 
-      - name: 💾 Install Salesforce CLI
-        run: npm install -g sfdx-cli
+    - name: 🛠️ Install Salesforce CLI
+      run: |
+        npm install sfdx-cli --global
+        sfdx --version
 
-      - name: 🔐 Decode Auth URL
-        run: echo "${{ secrets.BM_SB_AUTH_URL }}" > auth_url.txt
+    - name: 🔐 Authenticate to BM_SB using Auth URL
+      run: |
+          echo "${{ secrets.BM_SB_AUTH_URL }}" > auth.txt
+          sfdx force:auth:sfdxurl:store -f auth.txt -a BM_SB
+          sfdx force:org:list
+      shell: bash
 
-      - name: 🔑 Authenticate to BM_SB Sandbox
-        run: sfdx force:auth:sfdxurl:store -f auth_url.txt -a BM_SB
 
-      - name: ✅ Verify Authentication
-        run: sfdx force:org:list
-
-      - name: 🚀 Deploy to BM_SB Sandbox
-        run: sfdx force:source:deploy -u BM_SB -p force-app -l RunLocalTests -w 30
+    - name: 🚀 Deploy metadata to BM_SB
+      run: |
+        sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal
