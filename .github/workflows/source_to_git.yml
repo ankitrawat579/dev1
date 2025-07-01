@@ -1,0 +1,31 @@
+name: Deploy to BM_SB on Merge
+
+on:
+  push:
+    branches:
+      - deployment-changes-second-step
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout repository
+      uses: actions/checkout@v3
+
+    - name: 🛠️ Install Salesforce CLI
+      run: |
+        npm install sfdx-cli --global
+        sfdx --version
+
+    - name: 🔐 Authenticate to BhavSB using Auth URL
+      run: |
+          echo "${{ secrets.BM_SB_AUTH_URL }}" > auth.txt
+          sfdx force:auth:sfdxurl:store -f auth.txt -a BhavSB
+          sfdx force:org:list
+      shell: bash
+
+
+    - name: 🚀 Deploy metadata to Bhav
+      run: |
+        sfdx force:source:deploy -u BhavSB -p force-app --json --loglevel fatal
