@@ -25,6 +25,11 @@ jobs:
           sfdx force:org:list
       shell: bash
 
+    - name: 🔍 Validate metadata deployment
+      run: |
+        sfdx force:source:deploy -u BM_SB -p force-app --checkonly --json --loglevel fatal
+      shell: bash
+
 
     - name: 🚀 Deploy metadata to Bhav
       run: |
