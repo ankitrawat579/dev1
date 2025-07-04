@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/development-changes'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +32,6 @@ jobs:
       shell: bash
 
 
-    - name: 🚀 Deploy metadata to Bhav
+    - name: Deploy metadata to Bhav
       run: |
         sfdx force:source:deploy -u BM_SB -p force-app --json --loglevel fatal
