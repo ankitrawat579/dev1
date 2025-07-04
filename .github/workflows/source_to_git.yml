@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/development-changes'
     runs-on: ubuntu-latest
 
     steps:
