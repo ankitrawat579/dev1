@@ -32,6 +32,6 @@ jobs:
       shell: bash
 
 
-    - name: 🚀 Deploy metadata to Bhav
+    - name: Deploy metadata to Priyankar
       run: |
         sfdx force:source:deploy -u PM_SB -p force-app --json --loglevel fatal
